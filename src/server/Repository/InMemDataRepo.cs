@@ -25,6 +25,7 @@ namespace Server.Repository
             var b4 = new Book { Id = 4, Name = "New Testament", Authors = new[] { a2 } };
             var b5 = new Book { Id = 5, Name = "Jag fattar ingenting", Authors = new[] { a2, a3 } };
             var b6 = new Book { Id = 6, Name = "Jag fattar fortfarande ingenting", Authors = new[] { a2, a3 } };
+            var b7 = new Book();
 
             a1.Books.Add(b1);
             a1.Books.Add(b2);

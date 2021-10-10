@@ -4,10 +4,10 @@ namespace Server.Models
 {
     public sealed class Book
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
-        public string Name { get; set; } = "";
+        public string Name { get; init; } = default!;
 
-        public ICollection<Author> Authors { get; set; } = new List<Author>();
+        public ICollection<Author> Authors { get; init; } = default!;
     }
 }
