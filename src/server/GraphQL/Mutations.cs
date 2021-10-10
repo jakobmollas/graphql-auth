@@ -2,16 +2,19 @@
 using HotChocolate;
 using System.Threading;
 using Server.Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Server.GraphQL
 {
-    // This is not fully implemented yet
     public class Mutations
     {
         public AddAuthorResult AddAuthor(AddAuthorInput input, [Service] IInMemDataRepo repo, CancellationToken cs)
         {
             var author = new Author
             {
+                Id = repo.GetNextAuthorId(),
                 Name = input.name,
                 Nickname = input.nickname
             };
@@ -25,7 +28,9 @@ namespace Server.GraphQL
         {
             var book = new Book
             {
+                Id = repo.GetNextBookId(),
                 Name = input.name,
+                Authors = repo.LookupAuthors(input.authorIds).ToList()
                 //AuthorId = input.authorId
             };
 
@@ -39,6 +44,6 @@ namespace Server.GraphQL
     public record AddAuthorInput(string name, string nickname);
     public record AddAuthorResult(Author author);
 
-    public record AddBookInput(string name);
+    public record AddBookInput(string name, List<int> authorIds);
     public record AddBookResult(Book book);
 }

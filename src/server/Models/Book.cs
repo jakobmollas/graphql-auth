@@ -6,8 +6,8 @@ namespace Server.Models
     {
         public int Id { get; init; }
 
-        public string Name { get; init; } = default!;
+        public string Name { get; init; } = "";
 
-        public ICollection<Author> Authors { get; init; } = default!;
+        public ICollection<Author> Authors { get; init; } = new List<Author>();
     }
 }
