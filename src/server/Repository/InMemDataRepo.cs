@@ -5,8 +5,8 @@ namespace Server.Repository
 {
     public sealed class InMemDataRepo : IInMemDataRepo
     {
-        public List<Author> Authors { get; private set; }
-        public List<Book> Books { get; private set; }
+        public List<Author> Authors { get; private set; } = new List<Author>();
+        public List<Book> Books { get; private set; } = new List<Book>();
 
         public InMemDataRepo()
         {

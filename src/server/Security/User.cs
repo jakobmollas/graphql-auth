@@ -4,8 +4,8 @@ namespace Server.Security
 {
     public class User
     {
-        public string Name { get; set; }
-        public string ApiKey { get; set; }
-        public List<UserRole> Roles { get; set; } = new List<UserRole>();
+        public string Name { get; init; } = "";
+        public string ApiKey { get; init; } = "";
+        public List<string> Roles { get; } = new List<string>();
     }
 }

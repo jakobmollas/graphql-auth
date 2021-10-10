@@ -14,31 +14,32 @@ namespace Server.GraphQL
     
     public class Query
     {
-        [Authorize]
+        [Authorize(Roles = new[] { UserRoles.Read })]
         [UseFiltering]
         [UseSorting]
-        [GraphQLDescription("Get authors")]
+        [GraphQLDescription("Get authors.")]
         public IList<Author> GetAuthors([Service] IInMemDataRepo repo)
         {
             return repo.Authors;
         }
 
+        [Authorize(Roles = new[] { UserRoles.Read })]
         [UseFiltering]
         [UseSorting]
-        [GraphQLDescription("Get books")]
+        [GraphQLDescription("Get books.")]
         public IList<Book> GetBooks([Service] IInMemDataRepo repo)
         {
             return repo.Books;
         }
 
-        [GraphQLDescription("Get info on the currently logged-in user")]
+        [GraphQLDescription("Get info on the currently logged-in user.")]
         public SystemUser GetUser(ClaimsPrincipal claimsPrincipal)
         {
             var identity = claimsPrincipal?.Identity as ClaimsIdentity;
             if (identity?.Name == null)
                 throw new Exception("No user logged in");
 
-            var user  = new SystemUser(claimsPrincipal.Identity.Name);
+            var user  = new SystemUser(identity.Name);
 
             var claimsRoles = identity.Claims.Where(n => n.Type == ClaimTypes.Role).Select(n => n.Value);
             foreach (var role in claimsRoles)
@@ -47,8 +48,8 @@ namespace Server.GraphQL
             return user;
         }
 
-        [GraphQLDescription("Log in user and create access token.")]
-        public string Login(string apiKey, [Service] IUserAuthenticationService userAuthentication)
+        [GraphQLDescription("Log in user via ApiKey and create access token.")]
+        public string Login([GraphQLDescription("User ApiKey")] string apiKey, [Service] IUserAuthenticationService userAuthentication)
         {
             var token = userAuthentication.Authenticate(apiKey);
 

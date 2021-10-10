@@ -4,6 +4,7 @@ using HotChocolate;
 using Server.Repository;
 using System.Linq;
 using System.Collections.Generic;
+using Server.Security;
 
 namespace Server.GraphQL
 {
@@ -22,20 +23,19 @@ namespace Server.GraphQL
             //       they are explicitly set here to show how to do it and to avoid accidental updates due changes in underlying types
             descriptor
                 .Field(n => n.Id)
-                .Name("id")
+                .Name("id") // We do not need to specify field names if we want them to be the same as the name of the field we bind to but choose to do so for clarity and explicitness
                 .Description("Author identifier");
 
             descriptor
                 .Field(n => n.Name)
                 .Name("name")
-                .Type<NonNullType<StringType>>()
                 .Description("Full author name");
 
             descriptor
                 .Field(n => n.Nickname)
                 .Name("nickname")
                 .Type<StringType>()
-                .Authorize()
+                //.Authorize(new [] {UserRoles.Read, UserRoles.Write }) // We can use authorization on individual fields if needed, optionally also using roles/policies
                 .Description("Optional nickname");
 
             // There are several ways to resolve data, sometimes it can be done implicitly, 

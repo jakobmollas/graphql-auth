@@ -10,7 +10,7 @@ namespace Server.Security
 {
     public interface IUserAuthenticationService
     {
-        string Authenticate(string apiKey);
+        string? Authenticate(string apiKey);
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Server.Security
                 algorithm: SecurityAlgorithms.HmacSha256Signature);
         }
 
-        public string Authenticate(string apiKey)
+        public string? Authenticate(string apiKey)
         {
             // Case-sensitive check
             var user = _config.Users.FirstOrDefault(n => string.Equals(n.ApiKey, apiKey, StringComparison.Ordinal));
@@ -40,7 +40,7 @@ namespace Server.Security
                 return null;
 
             var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.Name) };
-            claims.AddRange(user.Roles.Select(role => new Claim(ClaimTypes.Role, role.ToString())));
+            claims.AddRange(user.Roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
             // For more info on JWT, see:
             // https://jwt.io/

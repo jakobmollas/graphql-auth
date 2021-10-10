@@ -19,8 +19,8 @@ namespace Server.GraphQL
             descriptor
                 .Field(n => n.Roles)
                 .Name("roles")
-                .Type<NonNullType<ListType<StringType>>>()
-                .Description("All roles this user belongs to.");
+                .Type<NonNullType<ListType<NonNullType<StringType>>>>()
+                .Description("All roles this user belongs to");
         }
     }
 }
