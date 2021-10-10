@@ -1,0 +1,1 @@
+﻿These models (or this namespace) should NOT know anything about HotChocolate since we use Code-first and not Annotation-based configuration.
