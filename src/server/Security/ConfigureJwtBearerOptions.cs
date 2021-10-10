@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace Server.Security
 {
     /// <summary>
-    /// Configure JwtBearerOptions - this construction allows dependency injection to be used to retrieve encryption data from options
+    /// Configure JwtBearerOptions - this construction allows dependency injection to be used to retrieve e.g. encryption key data from options
     /// See: https://github.com/dotnet/aspnetcore/issues/21491
     /// </summary>
     public class ConfigureJwtBearerOptions : IConfigureNamedOptions<JwtBearerOptions>

@@ -13,6 +13,10 @@ namespace Server.Security
         string Authenticate(string apiKey);
     }
 
+    /// <summary>
+    /// Handles authentication of users/users api keys by trying to match incoming api key data to our user repository.
+    /// Creates and returns JWT data on successful matches.
+    /// </summary>
     public sealed class UserAuthenticationService : IUserAuthenticationService
     {
         private readonly SecurityConfiguration _config;

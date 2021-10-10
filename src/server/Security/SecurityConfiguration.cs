@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Server.Security
 {
+    /// <summary>
+    /// This class is used to map data from config, for example from appsetting.json
+    /// </summary>
     public class SecurityConfiguration
     {
         public const string Identifier = "Security";
