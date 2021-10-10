@@ -1,5 +1,4 @@
-﻿using HotChocolate;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Server.Models
 {
@@ -7,10 +6,8 @@ namespace Server.Models
     {
         public int Id { get; set; }
 
-        [GraphQLNonNullType]
         public string Name { get; set; }
 
-        [GraphQLNonNullType]
         public ICollection<Author> Authors { get; set; } = new List<Author>();
     }
 }

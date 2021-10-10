@@ -35,6 +35,7 @@ namespace Server.GraphQL
                 .Field(n => n.Nickname)
                 .Name("nickname")
                 .Type<StringType>()
+                .Authorize()
                 .Description("Optional nickname");
 
             // There are several ways to resolve data, sometimes it can be done implicitly, 

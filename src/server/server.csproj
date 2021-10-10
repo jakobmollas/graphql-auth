@@ -8,7 +8,10 @@
   <ItemGroup>
     <PackageReference Include="graphql.server.ui.voyager" Version="5.0.2" />
     <PackageReference Include="hotchocolate.aspnetcore" Version="11.3.7" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="11.3.7" />
     <PackageReference Include="HotChocolate.Data" Version="11.3.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.10" />
   </ItemGroup>
 
 </Project>
