@@ -76,22 +76,6 @@ mutation {
 
 ```graphql
 mutation { 
-  addAuthor(input: { 
-    name: "Isaac Asimov"
-    nickname: "Азимов"
-  }) 
-  {
-    author {
-      id
-      name
-      nickname
-    }
-  }
-}
-```
-
-```graphql
-mutation { 
   addBook(input: { 
     name: "Foundation"
     authorIds: [5]
