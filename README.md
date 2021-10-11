@@ -1,5 +1,5 @@
 # graphql-auth
-HotChocolate GraphQL implementation using Authentication and Authorization using JWT.
+HotChocolate GraphQL implementation using Authentication and Authorization via JWT.
 
 - User authentication is handled via GraphQL as a separate top-level query (`login`), returning JWT data in exchange for a user ApiKey
 - User data is stored in `appsetting.json` which in most cases is a BAD idea, but this example is about authentication and quthorization, not user handling - that is a whole separate topic
