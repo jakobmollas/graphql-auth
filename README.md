@@ -15,3 +15,16 @@ Overall security seems to be pretty straightforward to implement if security can
 
 One thing I miss is a way to document security requirements, i.e. which queries/mutations/types/fields require authentication/authorization and in which way, which roles etc. 
 Maybe there is a way but I cannot find it.
+
+Example queries/mutations:
+   ```get authors
+   query getAuthors {
+     authors {
+       name
+       nickname
+       books {
+         name 
+       }
+     }
+   }
+   ```
