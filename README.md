@@ -16,15 +16,91 @@ Overall security seems to be pretty straightforward to implement if security can
 One thing I miss is a way to document security requirements, i.e. which queries/mutations/types/fields require authentication/authorization and in which way, which roles etc. 
 Maybe there is a way but I cannot find it.
 
-Example queries/mutations:
-   ```get authors
-   query getAuthors {
-     authors {
-       name
-       nickname
-       books {
-         name 
-       }
-     }
-   }
-   ```
+## Example queries:
+```graphql
+query login {
+  login(apiKey: "abc123") 
+}
+```
+
+```graphql
+query getBooks {
+  books {
+    id
+    name 
+    authors {
+      name
+    }
+  }
+}
+```
+
+```graphql
+query getAuthors {
+  authors {
+    id
+    name
+    nickname
+    books {
+      name 
+    }
+  }
+}
+```
+
+```graphql
+query currentUser {
+  user {
+    name 
+    roles 
+  }
+}
+```
+
+## Example mutations:
+```graphql
+mutation { 
+  addAuthor(input: { 
+    name: "Isaac Asimov"
+    nickname: "Азимов"
+  }) 
+  {
+    author {
+      id
+      name
+      nickname
+    }
+  }
+}
+```
+
+```graphql
+mutation { 
+  addAuthor(input: { 
+    name: "Isaac Asimov"
+    nickname: "Азимов"
+  }) 
+  {
+    author {
+      id
+      name
+      nickname
+    }
+  }
+}
+```
+
+```graphql
+mutation { 
+  addBook(input: { 
+    name: "Foundation"
+    authorIds: [5]
+    }) 
+  {
+    book {
+      id
+      name
+    }
+  }
+}
+```
