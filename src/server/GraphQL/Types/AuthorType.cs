@@ -4,7 +4,6 @@ using HotChocolate;
 using Server.Repository;
 using System.Linq;
 using System.Collections.Generic;
-using Server.Security;
 
 namespace Server.GraphQL
 {

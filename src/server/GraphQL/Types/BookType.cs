@@ -28,7 +28,8 @@ namespace Server.GraphQL
 
             descriptor
                 .Field(n => n.Authors)
-                .Type<NonNullType<ListType<NonNullType<BookType>>>>()
+                .Name("authors")
+                .Type<NonNullType<ListType<NonNullType<AuthorType>>>>()
                 .ResolveWith<Resolvers>(n => Resolvers.GetAuthors(default!, default!))
                 .Description("All authors who wrote this book");
         }

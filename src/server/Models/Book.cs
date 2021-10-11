@@ -2,12 +2,8 @@
 
 namespace Server.Models
 {
-    public sealed class Book
+    public sealed record Book(int Id, string Name)
     {
-        public int Id { get; init; }
-
-        public string Name { get; init; } = "";
-
-        public ICollection<Author> Authors { get; init; } = new List<Author>();
+        public List<Author> Authors { get; } = new List<Author>();
     }
 }

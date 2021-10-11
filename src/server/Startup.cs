@@ -32,10 +32,10 @@ namespace Server
                 .AddFiltering()
                 .AddSorting()
                 .AddQueryType<Query>()
+                .AddMutationType<Mutations>()
                 .AddType<AuthorType>()
                 .AddType<BookType>()
                 .AddType<SystemUserType>();
-            //.AddMutationType<Mutations>();
 
             services.AddSingleton<IUserAuthenticationService, UserAuthenticationService>();
             services.AddSingleton<IInMemDataRepo, InMemDataRepo>();

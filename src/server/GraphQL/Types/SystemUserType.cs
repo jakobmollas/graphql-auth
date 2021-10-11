@@ -1,6 +1,5 @@
 ﻿using Server.Models;
 using HotChocolate.Types;
-using Server.Security;
 
 namespace Server.GraphQL
 {
