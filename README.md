@@ -11,6 +11,7 @@ HotChocolate GraphQL implementation using Authentication and Authorization using
 HotChocolate uses standard ASP .Net Core authentication mechanisms and provices authorization logic in a similar way to how standard controller logic works. 
 It is possible to use role-base and/or policy-based authorization - this is also using normal ASP .Net Core logic which is nice.
 
-Overall security seems to be pretty straightforward to implement, well if security can ever be classified as easy or simple, but HotChocolate does not add additional complexity to the mix.
+Overall security seems to be pretty straightforward to implement if security can ever be classified as easy or simple, but HotChocolate does not add additional complexity to the mix.
 
-One thing I miss is some kind of way to document security requirements, i.e. which queries/mutations/types/fields require authentication/authorization and in which way. Maybe there is a way but I cannot find it.
+One thing I miss is a way to document security requirements, i.e. which queries/mutations/types/fields require authentication/authorization and in which way, which roles etc. 
+Maybe there is a way but I cannot find it.
